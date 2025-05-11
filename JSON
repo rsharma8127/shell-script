@@ -1,0 +1,9 @@
+Yes, this data should be in JSON instead
+
+JSON:
+
+Better for hierarchical or nested data.
+
+Ideal for APIs or when integrating with web applications.
+
+Easier to work with in programming environments like Python, JavaScript.
