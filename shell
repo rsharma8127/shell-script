@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Download the NAV data
+curl -s "https://www.amfiindia.com/spages/NAVAll.txt" -o nav.txt
+
+# Output file
+output_file="scheme_nav.tsv"
+
+# Extract headers for reference (optional)
+# grep -m 1 "Scheme Name" nav.txt > "$output_file"
+
+# Process and extract relevant fields
+awk -F';' '
+    BEGIN {
+        OFS="\t"
+        print "Scheme Name", "Net Asset Value"
+    }
+    /^[0-9]/ {
+        # $4 = Scheme Name, $5 = NAV
+        print $4, $5
+    }
+' nav.txt > "$output_file"
+
+echo "Extracted data saved to $output_file"
+
+
+
+
+
+
+
+
+
+
